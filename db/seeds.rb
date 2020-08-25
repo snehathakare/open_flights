@@ -5,3 +5,45 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+airlines = Airline.create([
+  { 
+    name: "United Airlines",
+    image_url: "https://open-flights.s3.amazonaws.com/United-Airlines.png"
+  }, 
+  { 
+    name: "Southwest",
+    image_url: "https://open-flights.s3.amazonaws.com/Southwest-Airlines.png"
+  },
+  { 
+    name: "Delta",
+    image_url: "https://open-flights.s3.amazonaws.com/Delta.png" 
+  }, 
+  { 
+    name: "Alaska Airlines",
+    image_url: "https://open-flights.s3.amazonaws.com/Alaska-Airlines.png" 
+  }, 
+  { 
+    name: "JetBlue",
+    image_url: "https://open-flights.s3.amazonaws.com/JetBlue.png" 
+  }, 
+  { 
+    name: "American Airlines",
+    image_url: "https://open-flights.s3.amazonaws.com/American-Airlines.png" 
+  }
+])
+
+reviews = Review.create([
+  { 
+    title: "Safe Airline",
+    description: "Safe flight and comfortable seats" ,
+    score: 5,
+    airline_id: 1
+  }, 
+  { 
+    title: "Great experience",
+    description: "Good leg space" ,
+    score: 4,
+    airline_id: 1
+  }
+])
