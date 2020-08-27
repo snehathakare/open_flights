@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import Airline from '../Airline/Airline'
 
 const Airlines = () => {
     
@@ -9,15 +10,17 @@ const Airlines = () => {
         axios.get('/api/v1/airlines.json')
         .then(res =>  {setAirlines(res.data.data)})
         .catch(res => console.log(res))
-
+        
     },[airlines.length])
 
-    const list = airlines.map(item => {
-    return(<li key={item.attributes.name}>{item.attributes.name}</li>)
+    const grid = airlines.map(item => {
+    return(<Airline key={item.attributes.name}
+            attributes = {item.attributes}
+        ></Airline>)
     })
     
     return (
-            <ul>{list}</ul>
+            <ul>{grid}</ul>
         )
 }
 
