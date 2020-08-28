@@ -7,3 +7,26 @@
 .header {
     text-align: center;
 }
+
+.airline_card {
+    width: 300px;
+    margin: 20px;
+}
+
+.airline_details {
+    text-align: center;
+}
+
+.logo {
+    height: 100px;
+    width: 100px;
+}
+
+.link{
+    margin-top: 15px;
+   
+}
+
+.airline_button {
+    
+}

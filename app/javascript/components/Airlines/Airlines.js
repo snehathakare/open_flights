@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import Airline from '../Airline/Airline'
+import Airline from './Airline'
 import './Airlines.css'
 
 const Airlines = () => {
