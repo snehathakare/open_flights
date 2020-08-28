@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import Airline from '../Airline/Airline'
+import './Airlines.css'
 
 const Airlines = () => {
     
@@ -20,7 +21,11 @@ const Airlines = () => {
     })
     
     return (
-            <ul>{grid}</ul>
+            <div className="header">
+                <h1>Open Flights</h1>
+                <h2>Honest Unbiased Airline Reviews</h2>
+                <ul className="airlines_grid">{grid}</ul>
+            </div>
         )
 }
 
