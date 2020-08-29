@@ -1,6 +1,6 @@
 import React from 'react'
 import Airlines from './Airlines/Airlines'
-import Airline from './Airlines/Airline'
+import Airline from './Airline/Airline'
 import { Route, Switch } from "react-router-dom"
 
 const App = () => {
