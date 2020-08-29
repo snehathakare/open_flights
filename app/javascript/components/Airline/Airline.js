@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Header from './Header'
 import axios from 'axios';
+import ReviewForm from './ReviewForm'
 
 const Airline = (props) => {
 
@@ -14,15 +15,18 @@ const Airline = (props) => {
     
        axios.get(url)
         .then(res => {
-            console.log(res)
+           // console.log(res.data.data)
             setAirline(res.data.data)
+            setReviews(res.data.data.relationships)
             setLoaded(true)
         })
         .catch(res => console.log(res))
-
       
     },[])
 
+    const handleChange = () => {}
+
+    const handleSubmit = () => {}
 
     return (
         <div>
@@ -30,8 +34,12 @@ const Airline = (props) => {
                 loaded &&
                 <Header 
                     attributes={airline.attributes} 
+                    reviews = {airline.relationships.reviews.data.length}
                 />
+                
             }
+
+            <ReviewForm />
             
         </div>
         
