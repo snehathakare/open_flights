@@ -6,7 +6,7 @@ import ReviewForm from './ReviewForm'
 const Airline = (props) => {
 
     const [airline, setAirline] = useState({});
-    const [reviews, setReviews] = useState({});
+    const [review, setReview] = useState({});
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
@@ -15,18 +15,40 @@ const Airline = (props) => {
     
        axios.get(url)
         .then(res => {
-           // console.log(res.data.data)
+            console.log(res.data.data)
             setAirline(res.data.data)
-            setReviews(res.data.data.relationships)
+            setReview(res.data.data.relationships)
             setLoaded(true)
         })
         .catch(res => console.log(res))
       
     },[])
 
-    const handleChange = () => {}
+    const handleChange = (e) => {
+        e.preventDefault()
+        //console.log('name:', e.target.name, 'value:', e.target.value)
+        setReview(Object.assign({}, review, {[e.target.name]: e.target.value}))
+        //console.log(reviews)
+    }
 
-    const handleSubmit = () => {}
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        const csrfToken = document.querySelector('[name=csrf-token]').content
+        axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken
+
+        const airline_id = airline.id
+        axios.post('/api/v1/reviews', {review, airline_id})
+        .then(res => {
+            const included = [...airline.included, res.data]
+            setAirline({...airline, included})
+            setReview({title:'', description:'', score:0})
+            
+        })
+        .catch(res => console.log(res))
+
+
+    }
 
     return (
         <div>
@@ -34,12 +56,17 @@ const Airline = (props) => {
                 loaded &&
                 <Header 
                     attributes={airline.attributes} 
-                    reviews = {airline.relationships.reviews.data.length}
+                    review = {airline.relationships.reviews.data.length}
                 />
                 
             }
 
-            <ReviewForm />
+            <ReviewForm 
+                handleChange = {handleChange}
+                handleSubmit = {handleSubmit}
+                attributes={airline.attributes} 
+                review = {review}
+            />
             
         </div>
         
