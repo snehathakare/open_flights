@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Header from './Header'
 import axios from 'axios';
 import ReviewForm from './ReviewForm'
+import './Airline.css'
 
 const Airline = (props) => {
 
@@ -51,7 +52,7 @@ const Airline = (props) => {
     }
 
     return (
-        <div>
+        <div className="airline">
             {
                 loaded &&
                 <Header 

@@ -1,11 +1,13 @@
 .airlines_grid {
     display: flex;
     justify-content: space-around;
-    margin: 150px;
+    margin: 50px 150px 150px 150px;
+
 }
 
 .header {
     text-align: center;
+    margin-top: 50px;
 }
 
 .airline_card {
@@ -25,8 +27,4 @@
 .link{
     margin-top: 15px;
    
-}
-
-.airline_button {
-    
 }

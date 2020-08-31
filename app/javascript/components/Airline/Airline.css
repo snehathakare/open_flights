@@ -1,0 +1,25 @@
+.airline {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.review_form {
+    margin-top: 25px;
+}
+
+.review_text {
+    margin-bottom: 20px !important;
+}
+
+img {
+    margin-right: 10px;
+    height: 60px;
+    width: 60px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 100%;
+    margin-bottom: -8px;
+  }
+
+.logo {
+    margin-bottom: 20px;
+}  

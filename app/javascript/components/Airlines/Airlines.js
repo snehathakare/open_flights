@@ -1,7 +1,9 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, Fragment} from 'react'
 import axios from 'axios'
 import Airline from './Airline'
+import Nav from './Nav'
 import './Airlines.css'
+import Typography from '@material-ui/core/Typography'
 
 const Airlines = () => {
     
@@ -21,11 +23,15 @@ const Airlines = () => {
     })
     
     return (
-            <div className="header">
-                <h1>Open Flights</h1>
-                <h2>Honest Unbiased Airline Reviews</h2>
-                <ul className="airlines_grid">{grid}</ul>
-            </div>
+            <Fragment>
+                <Nav/>
+                <div className="header"> 
+                  <Typography variant="h3">Open Flights</Typography>
+                  <Typography variant="h5">Airline Reviews and Ratings</Typography>
+                  <Typography variant="body1">Trip verified honest and unbiased reviews</Typography>
+                  <ul className="airlines_grid">{grid}</ul>
+                </div>
+            </Fragment>    
         )
 }
 

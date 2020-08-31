@@ -15,12 +15,10 @@ const Airline = (props) => {
               <div className="title">{props.attributes.name}</div>
             </Typography>
             <Typography variant="h6" component="h6">
-              <div className="score">Reviews: {props.attributes.average_score}</div>
+              <div className="score">Rating: {props.attributes.average_score}</div>
             </Typography>
             <div className="link">
-              <Button className="airline_button" variant="contained">
-                <Link to={`/airlines/${props.attributes.slug}`}>View Airline Details</Link>
-              </Button> 
+              <Link to={`/airlines/${props.attributes.slug}`}>View Airline Details</Link>  
             </div>
           </CardContent>
         </Card>
